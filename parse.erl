@@ -1,7 +1,7 @@
 -module(parse).
 -export([main/0]).
 
--spec parse(string()) -> {pretty_print:expr(), string()}.
+-spec parse(string()) -> {strucs:expr(), string()}.
 parse([$(|Rest]) ->
     {Expr1, Rest1} = parse(Rest),
     [Operator|Rest2] = Rest1,

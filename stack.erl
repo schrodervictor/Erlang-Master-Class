@@ -9,7 +9,7 @@
 
 -type program() :: [instruction()].
 
--spec compile(pretty_print:expr()) -> program().
+-spec compile(structs:expr()) -> program().
 
 compile({num, Num}) ->
     [{push, Num}];
@@ -20,7 +20,7 @@ compile({add, Expr1, Expr2}) ->
 compile({mul, Expr1, Expr2}) ->
     compile(Expr1) ++ compile(Expr2) ++ [{mul2}].
 
--spec run(program(), pretty_print:list_of_vars(), stack()) ->
+-spec run(program(), strucs:list_of_vars(), stack()) ->
     integer().
 
 run([{push, Num}|Continue], Env, Stack) ->

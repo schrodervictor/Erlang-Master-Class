@@ -20,7 +20,7 @@ mul_by_one({mul, Expr, {num, 1}}) ->
 mul_by_one(Expr) ->
     Expr.
 
--spec simplify(pretty_print:expr()) -> pretty_print:expr().
+-spec simplify(strucs:expr()) -> strucs:expr().
 simplify({add, Expr1, Expr2}) ->
     F = simplification_function(),
     F({add, F(Expr1), F(Expr2)});
