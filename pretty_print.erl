@@ -1,5 +1,5 @@
 -module(pretty_print).
--export([main/0]).
+-export([main/0, lookup/2]).
 -export_type([expr/0, list_of_vars/0]).
 
 -type expr() :: {num, integer()}
