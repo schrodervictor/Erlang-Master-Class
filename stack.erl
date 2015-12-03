@@ -26,7 +26,7 @@ compile({mul, Expr1, Expr2}) ->
 run([{push, Num}|Continue], Env, Stack) ->
     run(Continue, Env, [Num|Stack]);
 run([{fetch, Var}|Continue], Env, Stack) ->
-    run(Continue, Env, [pretty_print:lookup(Var, Env)|Stack]);
+    run(Continue, Env, [utils:lookup(Var, Env)|Stack]);
 run([{add2}|Continue], Env, [Num1, Num2 | Stack]) ->
     run(Continue, Env, [Num1+Num2|Stack]);
 run([{mul2}|Continue], Env, [Num1, Num2 | Stack]) ->

@@ -1,5 +1,5 @@
 -module(pretty_print).
--export([main/0, lookup/2]).
+-export([main/0]).
 
 -spec print(strucs:expr()) -> string().
 print({num, Num}) ->
@@ -15,17 +15,11 @@ print({mul, Expr1, Expr2}) ->
 evaluate(_Vars, {num, Num}) ->
     Num;
 evaluate(Vars, {var, Var}) ->
-    lookup(Var, Vars);
+    utils:lookup(Var, Vars);
 evaluate(Vars, {add, Expr1, Expr2}) ->
     evaluate(Vars, Expr1) + evaluate(Vars, Expr2);
 evaluate(Vars, {mul, Expr1, Expr2}) ->
     evaluate(Vars, Expr1) * evaluate(Vars, Expr2).
-
--spec lookup(atom(), list_of_vars()) -> integer().
-lookup(Var, [{Var, Num}|_]) ->
-    Num;
-lookup(Var, [_|Tail]) ->
-    lookup(Var, Tail).
 
 main() ->
     Expression = {add, {num, 2}, {mul, {num, 3}, {var, a}}},
