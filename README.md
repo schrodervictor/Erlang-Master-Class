@@ -1,7 +1,7 @@
 Erlang Master Class
 ===================
 
-# By Kent University
+## By Kent University
 
 Exercises:
 
